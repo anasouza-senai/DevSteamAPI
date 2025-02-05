@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DevSteamAPI.Data;
 using DevSteamAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevSteamAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JogoesController : ControllerBase
+    [Authorize]
+    public class JogosController : ControllerBase
     {
         private readonly DevSteamAPIContext _context;
 
-        public JogoesController(DevSteamAPIContext context)
+        public JogosController(DevSteamAPIContext context)
         {
             _context = context;
         }
